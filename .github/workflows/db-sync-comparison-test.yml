@@ -1,0 +1,17 @@
+name: cardano-db-sync comparison test
+
+on: [push]
+
+jobs:
+  build:
+
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+    runs-on: ${{ matrix.os }}
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Try to fail
+      run: |
+        ls /home
